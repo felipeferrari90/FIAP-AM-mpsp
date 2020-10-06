@@ -25,6 +25,8 @@ dependencies:
     sdk: flutter
   sqflite: ^1.3.0  
   url_launcher: ^5.7.2
+  dio: ^3.0.9
+ 
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -47,11 +49,12 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-assets:
-  - assets/images/
-#   - images/logo.png
-#   - images/logo-name.png
-#   - images/logo.jpeg    
+  assets:
+    - assets/images/logo.png
+    - assets/images/logo-name.png
+    - assets/images/logo.jpg    
+    - assets/images/home-bg.jpg
+    - assets/images/home2-bg.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -64,12 +67,15 @@ assets:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: oswald
+      fonts:
+        - asset: assets/fonts/oswald-regular.ttf
+        - asset: assets/fonts/oswald-bold.ttf
+          weight: 700
+    - family: proxima-nova
+      fonts:
+        - asset: assets/fonts/proxima-nova-light.otf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

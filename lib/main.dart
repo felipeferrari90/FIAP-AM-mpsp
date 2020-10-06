@@ -19,6 +19,7 @@ class MpspBot extends StatelessWidget {
       initialRoute: "/",
       theme: ThemeData(
         primarySwatch: Colors.blue,   
+        fontFamily: 'oswald',
       ),
       routes: {
         '/': (context) => HomeBot(), 

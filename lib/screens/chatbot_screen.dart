@@ -38,7 +38,7 @@ class _ChatBotScreenState extends State<ChatBotScreen>{
                       children: <Widget>[
                         messageBox("Oi tudo bem como posso ajuda-lo?", Colors.blue[800], Alignment.centerLeft),
                         messageBox("eu gostaria de saber sobre o mpsp", Colors.black, Alignment.centerRight),
-                        messageBox("para mais informacoes acesse o site http://www.mpsp.mp.br/portal/page/portal/home/home_interna", Colors.blue[800], Alignment.centerRight),
+                        messageBox("para mais informacoes acesse o site http://www.mpsp.mp.br/portal/page/portal/home/home_interna", Colors.blue[800], Alignment.centerRight, taplink: "http://www.mpsp.mp.br/portal/page/portal/home/home_interna" ),
                         messageBox("valeu obrigado", Colors.black, Alignment.centerRight),
                         messageBox("de nada :)", Colors.blue[800], Alignment.centerLeft),
                       ]                

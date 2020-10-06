@@ -1,15 +1,16 @@
+import 'package:am_mpsp/models/important_model.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
 
 
-Widget cardAdvice(String titulo, String descricao, {String url}){
-     return Card(  
-                elevation: 11.0,
+Widget cardAdvice(ImportantModel important){
+          return Card(
+              elevation: 11.0,
                 child: GestureDetector(
-                 onTap: () {
-                     _launchURL(url);
+                  onTap: () {
+                     _launchURL(important.url);
                   } ,
                   child: Row(    
                     children: [
@@ -30,7 +31,7 @@ Widget cardAdvice(String titulo, String descricao, {String url}){
                               children: <Widget>[
                                 Container(
                                   padding: EdgeInsets.all(4.0),
-                                  child: Text(titulo.toUpperCase(),
+                                  child: Text( important.titulo.toUpperCase(),
                                     style: TextStyle(
                                       color: Colors.red,
                                       fontWeight: FontWeight.bold,                        
@@ -42,7 +43,7 @@ Widget cardAdvice(String titulo, String descricao, {String url}){
                                 Container(
                                   padding: EdgeInsets.all(4.0),                            
                                   child: Expanded(                           
-                                      child: Text(descricao,
+                                      child: Text (important.mensagem,
                                           style: TextStyle(fontSize: 12),
                                       ),                               
                                   ),
@@ -53,8 +54,11 @@ Widget cardAdvice(String titulo, String descricao, {String url}){
                       )                  
                     ],
                  ), 
-               )
-             );
+               ) 
+          );
+    
+              
+             
 
              
 }

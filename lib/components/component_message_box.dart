@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-Align messageBox(String mensagem, Color color, Alignment alignment){
+Align messageBox(String mensagem, Color color, Alignment alignment,{ String taplink }){
   return Align(
      alignment: alignment,
      child: Container(
@@ -8,19 +9,30 @@ Align messageBox(String mensagem, Color color, Alignment alignment){
       margin: EdgeInsets.all(4.0),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(12.0),
-        border: Border.all(
-          color: Colors.red[700],
-          width: 3
-        ),
+        borderRadius: BorderRadius.circular(12.0),    
       ),
-      child: Text(mensagem,
+      child: GestureDetector(
+         onTap: (){
+           _launchChatURL(taplink);
+           },
+        child: Text( mensagem,
         style: TextStyle( 
-          color: color, 
+          color: color,  
           fontWeight: FontWeight.bold,     
-        ),
-      ),
+          fontFamily: 'proxima-nova',
+          ),
+        ),     
+      ) 
     )
   );
 }
 
+
+ _launchChatURL(String linkUrl) async {
+          var url = linkUrl;
+          if (await canLaunch(url)) {
+              await launch(url);
+          } else {
+              throw 'nao foi possivel se conectar ao $url';
+          }
+} 

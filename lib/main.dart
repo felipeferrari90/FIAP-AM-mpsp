@@ -3,7 +3,7 @@ import 'package:am_mpsp/screens/chatbot_screen.dart';
 import 'package:am_mpsp/screens/important_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'home_bot.dart';
+import 'package:am_mpsp/screens/home_bot.dart';
 
 
 void main() {

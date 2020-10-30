@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 
-Widget buttonRounded(BuildContext context, String text, String route, {bool outlineButton = false} ){
+Widget buttonRounded(BuildContext context, String text, String route, {bool secundaryButton = false} ){
   return Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: EdgeInsets.fromLTRB(12.0 , 24.0, 12.0, 2.0),
                   child:  RaisedButton(
+                    
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25.0),
-                      side: BorderSide(
-                        color: outlineButton ? Colors.red[900]: Colors.transparent , 
-                        width: 2,
-                      ),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                     child: SizedBox(
-                      width: 175,
+                      width: 250,
                       child: Padding(
                         padding: EdgeInsets.all(16), 
                           child: Text(text,
@@ -22,8 +19,8 @@ Widget buttonRounded(BuildContext context, String text, String route, {bool outl
                           ),
                         ),
                     ),
-                    color: outlineButton ? Colors.white.withOpacity(0.4) : Colors.red[800],
-                    textColor: outlineButton ? Colors.red[900]: Colors.white,
+                    color: secundaryButton ?  Color.fromRGBO(149,27,38,1) : Color.fromRGBO(67, 0, 1, 1),
+                    textColor: secundaryButton ? Color.fromRGBO(67, 0, 1, 1) : Color.fromRGBO(149,27,38,1), 
                     textTheme: ButtonTextTheme.primary,
                     onPressed: (){
                        Navigator.pushNamed(context,route);

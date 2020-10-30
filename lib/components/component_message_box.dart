@@ -8,8 +8,8 @@ Align messageBox(String mensagem, Color color, Alignment alignment,{ String tapl
       padding: EdgeInsets.all(8.0),
       margin: EdgeInsets.all(4.0),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12.0),    
+        color: Color.fromRGBO(243,243,243,1),
+        borderRadius: BorderRadius.circular(15.0),    
       ),
       child: GestureDetector(
          onTap: (){

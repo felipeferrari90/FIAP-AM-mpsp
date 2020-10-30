@@ -17,22 +17,34 @@ class _ChatBotScreenState extends State<ChatBotScreen>{
   Widget build(BuildContext context){
      return Scaffold(
        appBar: AppBar(
-         title: Text( " Conversa com o ChatBot"),
-         centerTitle: true,
-         backgroundColor: Colors.red[700],
+         iconTheme: IconThemeData(
+           color: Color.fromRGBO(145,25,35,1),
+           size: 30, 
+         ),
+         elevation: 0,
+         backgroundColor: Color.fromRGBO(231,231,231,1),
+         toolbarOpacity: 1,
        ),
-       backgroundColor: Colors.grey[400],
+       backgroundColor:  Color.fromRGBO(67,0,1,1),
        floatingActionButton: FloatingActionButton(
          onPressed: null,
-         backgroundColor: Colors.red[700],
+         backgroundColor: Color.fromRGBO(240,63,79, 1),
          child: Icon(
-            Icons.label_important,
+            Icons.send,
          ),
        ),
        body: Column(   
             mainAxisAlignment:  MainAxisAlignment.end,    
             children: <Widget>[
                Expanded(
+                    child:Container (
+                      decoration: BoxDecoration(
+                      color: Color.fromRGBO(231,231,231,1),
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(25),
+                        bottomRight: Radius.circular(25),
+                    )
+                  ),  
                   child: SingleChildScrollView(
                     child: Column(
                       children: <Widget>[
@@ -43,11 +55,18 @@ class _ChatBotScreenState extends State<ChatBotScreen>{
                         messageBox("de nada :)", Colors.blue[800], Alignment.centerLeft),
                       ]                
                     ),
-                  ),           
+                  ),  
+                )         
                ),
                Container(
-                 decoration: gradientPrimary(),
-                 padding: EdgeInsets.all(20.0),
+                 decoration: BoxDecoration(
+                   color: Color.fromRGBO(145,25,35,1),
+                   borderRadius: BorderRadius.only(
+                     topLeft: Radius.circular(25),
+                     topRight: Radius.circular(25),
+                   )
+                 ),
+                 padding: EdgeInsets.all(24.0),
                  child: Form(
                   key: formKey,
                      child: TextFormField(
@@ -58,7 +77,7 @@ class _ChatBotScreenState extends State<ChatBotScreen>{
                               hintText: 'insira a opcao para o bot',
                               contentPadding: EdgeInsets.all(20.0), 
                               hintStyle: TextStyle(
-                                color: Colors.grey[400],
+                                color: Color.fromRGBO(67, 0, 1 ,1),
                               )
                             ),
                             validator: (value) {

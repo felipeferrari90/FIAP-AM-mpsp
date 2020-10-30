@@ -4,17 +4,17 @@ import 'package:dio/dio.dart';
 
 class ImportantService {
 
+ //static final String _endpoint = "http://192.168.0.14:8081/mpsp/important";
  static final String _endpoint = "https://5f7b783b00bd740016909975.mockapi.io/api/importants";
- static final String _resource = 'important';
 
  final ServiceConfig service = new ServiceConfig(_endpoint);
 
  Future<List<ImportantModel>> findAll() async {
 
- List<ImportantModel> lista = new List<ImportantModel>();
+     List<ImportantModel> lista = new List<ImportantModel>();
 
  try {
-    Response response = await service.create().get(_resource);
+    Response response = await service.create().get(_endpoint);
     if (response.statusCode == 200) {
         response.data.forEach(
           (value) {
@@ -24,9 +24,11 @@ class ImportantService {
         );
       }
     } catch (error) {
-      print("Service Error: $error ");
+          print("Service Error: $error ");
       throw error;
     }
+
   return lista;
+  
   }
 }  

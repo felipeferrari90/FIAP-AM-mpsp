@@ -8,6 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 Widget cardAdvice(ImportantModel important){
           return Card(
               elevation: 11.0,
+              color: Color.fromRGBO(149,27,38,1),
                 child: GestureDetector(
                   onTap: () {
                      _launchURL(important.url);
@@ -17,10 +18,9 @@ Widget cardAdvice(ImportantModel important){
                       Container(
                         padding: EdgeInsets.all(8),                                 
                         child: Center(
-                          child: Container(
-                            color: Colors.red,
-                            width: 100,
-                            height: 100,
+                          child: Icon(
+                            Icons.warning,
+                            color: Color.fromRGBO(67,0,0,1),
                           )
                         )
                       ),
@@ -30,6 +30,7 @@ Widget cardAdvice(ImportantModel important){
                             child: Column(                         
                               children: <Widget>[
                                 Container(
+                                  
                                   padding: EdgeInsets.all(4.0),
                                   child: Text( important.titulo.toUpperCase(),
                                     style: TextStyle(
@@ -44,7 +45,9 @@ Widget cardAdvice(ImportantModel important){
                                   padding: EdgeInsets.all(4.0),                            
                                   child: Expanded(                           
                                       child: Text (important.mensagem,
-                                          style: TextStyle(fontSize: 12),
+                                          style: TextStyle(fontSize: 12                                          
+                                          ),
+                                          textAlign: TextAlign.left,
                                       ),                               
                                   ),
                                 ),

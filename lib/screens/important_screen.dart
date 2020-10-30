@@ -31,28 +31,31 @@ class _ImportantScreenState extends State<ImportantScreen>{
      return Scaffold(
        key: scaffoldKey,
        appBar: AppBar(
-         title: Text( "Importante"),
-         centerTitle: true,
-         backgroundColor: Colors.red,
+         iconTheme: IconThemeData(
+           color: Color.fromRGBO(145,25,35,1),
+           size: 30, 
+         ),
+         elevation: 0,
+         backgroundColor: Color.fromRGBO(93,3,12,1) ,
        ),
        body: Container(
-          decoration: gradientPrimary(),
+          color:  Color.fromRGBO(93,3,12,1),
           child: SingleChildScrollView(
             padding: EdgeInsets.all(20),
             child: FutureBuilder<List>( 
-              future:  importantService.findAll(),
+              future: importantService.findAll(),
               builder: (context, snapshot) {
                 if(snapshot.hasError){
                   return Center(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                         child: Text(
-                    'Erro ao carregar a lista de importantes. \n Detalhes: '+ snapshot.error.toString()),
+                          'Erro ao carregar a lista de importantes. \n Detalhes: '+ snapshot.error.toString()),
                       ),
                   );
                 }
                 else if (snapshot.connectionState == ConnectionState.done){    
-                    return buildListView(snapshot.data);                        
+                    return buildListViewExpanded(snapshot.data);                        
                 } else {
                   return Center(
                     child: CircularProgressIndicator(
@@ -83,13 +86,15 @@ class _ImportantScreenState extends State<ImportantScreen>{
   }
 
 
-  buildListView(List<ImportantModel> importants){
-    return ListView.builder(
-      itemCount: importants.length,
-      itemBuilder: (BuildContext context, int index){
-        return cardAdvice(importants[index]);
-      }    
-    );
+  buildListViewExpanded(List<ImportantModel> importants){
+      return ListView.builder(  
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
+        itemCount: importants.length,
+        itemBuilder: (BuildContext context, int index){
+          return cardAdvice(importants[index]);
+        }    
+      ); 
   }
 
 
